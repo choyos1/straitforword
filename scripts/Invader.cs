@@ -14,21 +14,17 @@ public class Invader : MonoBehaviour
         spriteRenderer = GetComponent<SpriteRenderer>();
         spriteRenderer.sprite = animationSprites[0];
     }
-
     private void Start()
     {
         InvokeRepeating(nameof(AnimateSprite), animationTime, animationTime);
     }
-
     private void AnimateSprite()
     {
         animationFrame++;
-
         if (animationFrame >= animationSprites.Length)
         {
             animationFrame = 0;
         }
-
         spriteRenderer.sprite = animationSprites[animationFrame];
     }
 
@@ -39,5 +35,4 @@ public class Invader : MonoBehaviour
             killed.Invoke(this);
         }
     }
-
 }
